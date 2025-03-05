@@ -1,11 +1,11 @@
-package MakeCalculator2;
+package MakeCalculator3;
 
 import java.util.Scanner;
 
-public class Calculator2Main {
+public class CalculatorMain3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in) ;
-        CalculatorClass calculator = new CalculatorClass();
+        CalculatorClass3 calculator = new CalculatorClass3();
 
 
         while (true) {
@@ -31,12 +31,12 @@ public class Calculator2Main {
                     result = calculator.multiply(a, b);
                     break;
                 case "/":
-                    try { //0으로 나누었을때 연산 오류 잡기 try-catch로
+                    try { //잘못된 입력
                         result = calculator.divide(a, b);
                     } catch (ArithmeticException e) {
                         System.out.println("오류! " + e.getMessage());
                         System.out.println("다시 입력해주세요.");
-                        continue;  // 0으로 나누었을 경우 다시 입력 받도록 함.
+                        continue;
                     }
                     break;
                 default:
@@ -44,7 +44,13 @@ public class Calculator2Main {
                     continue;  // 다시 입력
             }
             System.out.println("결과: " + result);
-            calculator.setResult(result);
+            calculator.setResult(a+" + "+b+" = " + result);
+
+            if (calculator.getListNum()>10){
+                System.out.println("계산기에 저장된 연산 값이 10개를 넘었습니다. 가장 오래된 연산 결과를 삭제합니다.");
+                calculator.removeResult();
+            }
+
 
             //프로그램 종료 여부 물어보기
             System.out.print("그만하려면 'exit'를 입력하세요 (계속하려면 아무거나 입력하세요) : ");
@@ -54,10 +60,11 @@ public class Calculator2Main {
                 break;
             }
         }
+        System.out.println("===============================");
+        System.out.println("계산기에 들어있는 연산 수 : "+calculator.getListNum());
+        System.out.println("연산 리스트");
+        calculator.getList();
 
-        System.out.println("==현재 계산기에 들어있는 연산 수==");
-        int numList = calculator.getListNum();
-        System.out.println(numList);
 
     }
 }

@@ -2,7 +2,7 @@ package MakeCalculator1;
 
 import java.util.Scanner;
 
-public class Calculator1Main {
+public class CalculatorMain1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in) ;
         boolean system = true;

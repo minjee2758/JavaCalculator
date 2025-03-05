@@ -2,13 +2,14 @@ package MakeCalculator2;
 
 import java.util.ArrayList;
 
-public class CalculatorClass {
+public class CalculatorClass2<T> {
     private ArrayList<Object> calculateList = new ArrayList<>(); //연산 결과 저장하기
 
     //setter 설정하기
-    public void setResult(Object result){
+    public void setResult(String result){
         calculateList.add(result);
     }
+
 
     //더하기
     int add(int a, int b){
@@ -37,5 +38,14 @@ public class CalculatorClass {
     //개수출력하기 getter
     public int getListNum(){
         return calculateList.size();
+    }
+    public void getList(){
+        for (Object o : calculateList) {
+            System.out.println(o);
+        }
+    }
+
+    public void removeResult() {
+            calculateList.remove(0);
     }
 }
