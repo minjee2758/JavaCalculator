@@ -9,8 +9,13 @@ public enum OperatorType {
     Divide("/", (a,b) -> {
         if (b == 0) { //예외처리
             throw new ArithmeticException("0으로는 나눌 수 없습니다");
+        } else { //나누었을때 실수인지 정수인지 판단하기
+            if ( (a/(double) b) == (a/b)){
+                return a/b;
+            }else {
+                return a/(double)b ;
+            }
         }
-        return a / b;
     });
 
     private final String operator;
