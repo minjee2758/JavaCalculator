@@ -40,8 +40,9 @@ public class CalculatorClass3<T> {
         return calculateList.size();
     }
     public void getList(){
+        int i =1;
         for (Object o : calculateList) {
-            System.out.println(o);
+            System.out.println(i+++"번째 : " +" "+ o);
         }
     }
 

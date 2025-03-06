@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class CalculatorMain3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in) ;
-        CalculatorClass3 calculator = new CalculatorClass3();
+        // CalculatorClass3 calculator = new CalculatorClass3();
+        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
 
 
         while (true) {
@@ -16,40 +17,54 @@ public class CalculatorMain3 {
             System.out.print("사칙연산 기호를 입력하세요: ");
             String operator = scanner.next();
 
-            //결과값 변수 설정하기
-            Object result = 0;
+            //enum 적용하기 (OperatorType)
+            try {
+                OperatorType operatorType = OperatorType.findOperator(operator);
+                //결과값 변수 설정하기
+                Object result = operatorType.apply(a,b);
+                System.out.println("결과: " + result);
+                arithmeticCalculator.setResult(a+" + "+b+" = " + result);
 
-            //연산자에 따라 연산 수행
-            switch (operator) {
-                case "+":
-                    result = calculator.add(a, b);
-                    break;
-                case "-":
-                    result = calculator.subtract(a, b);
-                    break;
-                case "*":
-                    result = calculator.multiply(a, b);
-                    break;
-                case "/":
-                    try { //잘못된 입력
-                        result = calculator.divide(a, b);
-                    } catch (ArithmeticException e) {
-                        System.out.println("오류! " + e.getMessage());
-                        System.out.println("다시 입력해주세요.");
-                        continue;
-                    }
-                    break;
-                default:
-                    System.out.println("잘못된 기호입니다. 다시 입력해주세요"); //case에 부합하지 않는 연산자 기호를 넣었을때
-                    continue;  // 다시 입력
-            }
-            System.out.println("결과: " + result);
-            calculator.setResult(a+" + "+b+" = " + result);
+                if (arithmeticCalculator.getListNum()>10){
+                    System.out.println("계산기에 저장된 연산 값이 10개를 넘었습니다. 가장 오래된 연산 결과를 삭제합니다.");
+                    arithmeticCalculator.removeResult();
+                }
 
-            if (calculator.getListNum()>10){
-                System.out.println("계산기에 저장된 연산 값이 10개를 넘었습니다. 가장 오래된 연산 결과를 삭제합니다.");
-                calculator.removeResult();
+            } catch (IllegalArgumentException e){
+                System.out.println("오류 발생 : " + e.getMessage());
             }
+
+//            //연산자에 따라 연산 수행
+//            switch (operator) {
+//                case "+":
+//                    result = calculator.add(a, b);
+//                    break;
+//                case "-":
+//                    result = calculator.subtract(a, b);
+//                    break;
+//                case "*":
+//                    result = calculator.multiply(a, b);
+//                    break;
+//                case "/":
+//                    try { //잘못된 입력
+//                        result = calculator.divide(a, b);
+//                    } catch (ArithmeticException e) {
+//                        System.out.println("오류! " + e.getMessage());
+//                        System.out.println("다시 입력해주세요.");
+//                        continue;
+//                    }
+//                    break;
+//                default:
+//                    System.out.println("잘못된 기호입니다. 다시 입력해주세요"); //case에 부합하지 않는 연산자 기호를 넣었을때
+//                    continue;  // 다시 입력
+//            }
+//            System.out.println("결과: " + result);
+//            calculator.setResult(a+" + "+b+" = " + result);
+//
+//            if (calculator.getListNum()>10){
+//                System.out.println("계산기에 저장된 연산 값이 10개를 넘었습니다. 가장 오래된 연산 결과를 삭제합니다.");
+//                calculator.removeResult();
+//            }
 
 
             //프로그램 종료 여부 물어보기
@@ -61,9 +76,9 @@ public class CalculatorMain3 {
             }
         }
         System.out.println("===============================");
-        System.out.println("계산기에 들어있는 연산 수 : "+calculator.getListNum());
+        System.out.println("계산기에 들어있는 연산 수 : "+arithmeticCalculator.getListNum());
         System.out.println("연산 리스트");
-        calculator.getList();
+        arithmeticCalculator.getList();
 
 
     }
