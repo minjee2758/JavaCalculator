@@ -41,24 +41,24 @@ LV1, LV2, LV3으로 구성된 프로젝트는 점차 기능을 확대하고 객�
 ```java
 📦 JavaCalculator
 ┣ 📂out
-┃ 
-┣ 📂src
-┃ ┃   //레벨1
-┃ ┣ 📂 MakeCalculator1    
-┃ ┃  ┗  CalculatorMain1.java
-┃ ┃ 
-┃ ┃   //레벨2
-┃ ┣ 📂 MakeCalculator2   
-┃ ┃  ┣  CalculatorClass2.java
-┃ ┃  ┗  CalculatorMain2.java
-┃ ┃
-┃ ┃   //레벨3
-┃ ┣ 📂 MakeCalculator3 
-┃ ┃  ┣  ArithmeticCalculator.java
-┃ ┃  ┣  CalculatorClass3.java
-┃ ┃  ┣  CalculatorMain3.java
-┃ ┃  ┗  OperatorType.java
-┃ ┃ 
+┣ 📂 MakeCalculator
+┃ ┣ 📂src
+┃ ┃ ┃   //레벨1
+┃ ┃ ┣ 📂 MakeCalculator1    
+┃ ┃ ┃  ┗  CalculatorMain1.java
+┃ ┃ ┃ 
+┃ ┃ ┃   //레벨2
+┃ ┃ ┣ 📂 MakeCalculator2   
+┃ ┃ ┃  ┣  CalculatorClass2.java
+┃ ┃ ┃  ┗  CalculatorMain2.java
+┃ ┃ ┃
+┃ ┃ ┃   //레벨3
+┃ ┃ ┣ 📂 MakeCalculator3 
+┃ ┃ ┃  ┣  ArithmeticCalculator.java
+┃ ┃ ┃  ┣  CalculatorClass3.java
+┃ ┃ ┃  ┣  CalculatorMain3.java
+┃ ┃ ┃  ┗  OperatorType.java
+┃ ┃ ┃ 
 ┗ 📜 README.md
 ```
 
