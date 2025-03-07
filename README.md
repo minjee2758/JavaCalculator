@@ -57,6 +57,11 @@ LV1, LV2, LV3으로 구성된 프로젝트는 점차 기능을 확대하고 객�
 ┃ ┃ ┃  ┣  CalculatorMain3.java //메인 클래스
 ┃ ┃ ┃  ┣  ArithmeticCalculator.java //기타 메서드
 ┃ ┃ ┃  ┗  OperatorType.java //enum타입 및 연산 
+┃ ┃ ┃  // 해설 들은 후, 다시 코딩한 결과
+┃ ┃ ┣ 📂 MakeCalculatorLast
+┃ ┃ ┃  ┣  CalculatorMain3.java //메인 클래스
+┃ ┃ ┃  ┣  ArithmeticCalculator.java //연산 + setter + getter
+┃ ┃ ┃  ┗  OperatorType.java //enum타입
 ┃ ┃ ┃ 
 ┗ 📜 README.md
 ```
